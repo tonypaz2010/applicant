@@ -8,10 +8,34 @@
   @for (applicant of applicantsResource.value().applicants; track $index) {
 
 
-  } @empty {
+  }
+  <!-- Empty -->
+  @empty {
   <p>No hay datos</p>
   }
 }
 </div>
 
+
+<div
+  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3"
+>
+
+   <!-- <visor-web />
+    <pre>{{ applicantsResource.value() | json }}</pre>-->
+
+</div>
+
+
+@if (applicantsResource.value(); as result) {
+  @if (result.applicants; as applicants) {
+
+  } @else {
+    <pre>{{ result }}</pre>
+    <pre>{{ applicantsResource.value() | json }}</pre>
+    <pre>{{ applicantsResource.value()?.applicants  }}</pre>
+  }
+} @else {
+  <p>Cargando datos...</p>
+}
 
